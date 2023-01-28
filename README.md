@@ -27,7 +27,7 @@
     </a>
 </p>
 
-<center>A little game simulator to show how live activities and dynamic island stuff can be build.</center>
+A little game simulator to show how to display some up-to-date (live) data with live activities on the lock screen and in the dynamic island (iPhone 14 Pro/Pro Max only!).
 
 ---
 
@@ -36,8 +36,10 @@
 * [Definitions](#definitions)
 * [Tech Stack](#tech-stack)
 * [Frameworks](#frameworks)
-* [Device Compatibility](#device-compatibility)
+* [Device and OS Compatibility](#device-and-os-compatibility)
 * [Screenshots](#screenshots)
+* [Design Patterns](#design-patterns)
+* [Architecture](#architecture)
 * [Learnings](#learnings)
 * [Testing](#testing)
 * [Code Comments](#code-comments)
@@ -47,6 +49,7 @@
 ---
 
 ## Functionality
+- On devices that support the Dynamic Island (see below), the App displays Live Activities on the leading and trailing side of the TrueDepth camera.
 
 ## Definitions
 
@@ -56,13 +59,26 @@
 
 ## Frameworks
 - SwiftUI
+- WidgetKit
+- ActivityKit
 
-## Device Compatibility
-- iPhone iOS 16.1+
+## Device and OS Compatibility
+- For Live Activities: iPhone with iOS 16.1+
+- For Dynamic Island: iPhone 14 Pro/Pro Max with iOS 16.1+
 
 ## Screenshots
 
+## Design Patterns
+In this project the following [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) are used:
+### [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
+We know the [Delegate Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. But of course it can also be used in combination with SwiftUI.
+
+## Architecture
+This project is build upon the following architecture:
+
 ## Learnings
+### Live Activities
+- [Apple doc: Displaying live data](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)
 
 ## Testing
 I use the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
