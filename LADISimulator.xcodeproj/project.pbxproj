@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1511CE3A2985249A001B836C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE392985249A001B836C /* GameState.swift */; };
 		1511CE3C29852852001B836C /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE3B29852852001B836C /* GameModel.swift */; };
+		152F67CF2987F4F9003F673B /* GameSimulatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67CE2987F4F9003F673B /* GameSimulatorDelegate.swift */; };
 		15376313298530DC00B5CF93 /* GameSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15376312298530DC00B5CF93 /* GameSimulator.swift */; };
 		1597564029842DC90098A417 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597563F29842DC90098A417 /* Team.swift */; };
 		15B167B82982D6D8001655B2 /* LADISimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167B72982D6D8001655B2 /* LADISimulatorApp.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		1511CE392985249A001B836C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		1511CE3B29852852001B836C /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		152F67CE2987F4F9003F673B /* GameSimulatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSimulatorDelegate.swift; sourceTree = "<group>"; };
 		15376312298530DC00B5CF93 /* GameSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSimulator.swift; sourceTree = "<group>"; };
 		1597563F29842DC90098A417 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		15B167B42982D6D8001655B2 /* LADISimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADISimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,9 +82,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1511CE3D298529B7001B836C /* Protocols */ = {
+		152F67CD2987F481003F673B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				152F67CE2987F4F9003F673B /* GameSimulatorDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -133,7 +136,7 @@
 				15B167B92982D6D8001655B2 /* GameView.swift */,
 				1597563D29842A780098A417 /* Model */,
 				1597563E29842A8D0098A417 /* CustomViews */,
-				1511CE3D298529B7001B836C /* Protocols */,
+				152F67CD2987F481003F673B /* Protocols */,
 				15B167BB2982D6DA001655B2 /* Assets.xcassets */,
 				15B167BD2982D6DA001655B2 /* Preview Content */,
 			);
@@ -299,6 +302,7 @@
 				1597564029842DC90098A417 /* Team.swift in Sources */,
 				1511CE3A2985249A001B836C /* GameState.swift in Sources */,
 				15B167BA2982D6D8001655B2 /* GameView.swift in Sources */,
+				152F67CF2987F4F9003F673B /* GameSimulatorDelegate.swift in Sources */,
 				15376313298530DC00B5CF93 /* GameSimulator.swift in Sources */,
 				15B167B82982D6D8001655B2 /* LADISimulatorApp.swift in Sources */,
 			);
