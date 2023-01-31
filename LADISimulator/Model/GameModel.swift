@@ -19,13 +19,13 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
         simulator.delegate = self
     }
 
-    // Update the state of the game
+    // Gets called every 2 seconds based on the GameSimulator with a new gameState
     func didUpdate(gameState: GameState) {
         self.gameState = gameState
     }
 
     func didCompleteGame() {
-        // TODO: to be implemented
+        simulator.end()
     }
 
 }
