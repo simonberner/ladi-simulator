@@ -11,7 +11,7 @@ import SwiftUI
 struct LADISimulatorApp: App {
     var body: some Scene {
         WindowGroup {
-            GameView()
+            GameView(model: GameModel())
         }
     }
 }

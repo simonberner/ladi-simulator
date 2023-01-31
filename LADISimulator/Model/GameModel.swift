@@ -14,7 +14,8 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
     let simulator = GameSimulator()
 
     init() {
-        // Register the GameModel as delegate of the GameSimulator
+        // Register the GameModel as the delegate of the GameSimulator
+        // (The current instance of GameModel is the delegate of the GameSimulator)
         simulator.delegate = self
     }
 
@@ -24,7 +25,7 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
     }
 
     func didCompleteGame() {
-        // TODO: implement
+        // TODO: to be implemented
     }
 
 }

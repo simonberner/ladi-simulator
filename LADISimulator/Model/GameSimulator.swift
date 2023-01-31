@@ -8,7 +8,7 @@
 import Foundation
 
 /// With the GameSimulator one can start and end a game simulation.
-/// The GameSimulator acts as the delegate
+/// (The GameSimulator has a delegate instance to report to)
 final class GameSimulator {
     // instance properties
     var homeTeam: Team
@@ -24,12 +24,13 @@ final class GameSimulator {
         homePossession ? homeTeam : guestTeam
     }
 
-    // Define a weak reference (to omit retain count and ARC can release it from memory)
+    // Create a delegate protocol instance (a weak reference to omit retain count and ARC can release it from memory)
+    // to which the GameSimulator has to report to.
     weak var delegate: GameSimulatorDelegate?
 
     // Init test data
     init() {
-        homeTeam = Team(name: "warrios", players: ["Ph. Collins",
+        homeTeam = Team(name: "warriors", players: ["Ph. Collins",
                                                    "A. Grande",
                                                    "M. Jackson",
                                                    "F. Mercury",
@@ -51,6 +52,7 @@ final class GameSimulator {
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runGameSimulator), userInfo: nil, repeats: true)
     }
 
+    // Reports to the delegate (GameModel in our case)
     func end() {
         delegate?.didUpdate(gameState: endGame())
     }
@@ -79,10 +81,10 @@ final class GameSimulator {
     }
 
     @objc private func runGameSimulator() {
-        //
+        // Tell the delegate to update its state
         delegate?.didUpdate(gameState: progressGame())
 
-        // end game when count is 120
+        // end game after 240 seconds (2sec timer * 120)
         guard possessionCount <= 120 else {
             delegate?.didCompleteGame()
             return
