@@ -84,7 +84,7 @@ final class GameSimulator {
         // Tell the delegate to update its state
         delegate?.didUpdate(gameState: progressGame())
 
-        // end game after 240 seconds (2sec timer * 120)
+        // every team gets 60 (120/2) ball possessions at max, after that the game is over
         guard possessionCount <= 120 else {
             delegate?.didCompleteGame()
             return
@@ -96,12 +96,13 @@ final class GameSimulator {
     private func progressGame() -> GameState {
         let pointsScored = Int.random(in: 0...3)
         // Add random homeScore or guestScore
-        homePossession ? (homeScore += pointsScored) : (guestScore += pointsScored)
+        homePossession ? (homeScore += pointsScored) : (guestScore += pointsScored) // homePossession : guestPossession
 
         let lastAction = createLastActionString(scoringTeam: scoringTeam, pointsScored: pointsScored)
 
         // Capture scoring team before toggling possession
         let scoringTeamName = scoringTeam.name
+        // Change from homePossession to guestPossession
         homePossession.toggle()
 
         return GameState(homeTeamScore: homeScore, guestTeamScore: guestScore, scoringTeamName: scoringTeamName, lastAction: lastAction)
