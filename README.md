@@ -27,7 +27,7 @@
     </a>
 </p>
 
-A little game simulator to show how to display some up-to-date (live) data with live activities on the lock screen and in the dynamic island (iPhone 14 Pro/Pro Max only!).
+A little [basketball](https://en.wikipedia.org/wiki/Basketball) game simulator which generates some live data to show how that data can be displayed with live activities on the lock screen and in the dynamic island.
 
 ---
 
@@ -40,6 +40,7 @@ A little game simulator to show how to display some up-to-date (live) data with 
 * [Screenshots](#screenshots)
 * [Design Patterns](#design-patterns)
 * [Architecture](#architecture)
+* [How does it work?](#how-does-it-work)
 * [Learnings](#learnings)
 * [Testing](#testing)
 * [Code Comments](#code-comments)
@@ -49,9 +50,15 @@ A little game simulator to show how to display some up-to-date (live) data with 
 ---
 
 ## Functionality
-- On devices that support the Dynamic Island (see below), the App displays Live Activities on the leading and trailing side of the TrueDepth camera.
+This App shows Live Activity (live data updates):
+- on the lock screen
+- in the compact version of the dynamic island
+- in the expanded version of the dynamic island
+On devices that support the Dynamic Island (see list below), the App displays Live Activities on the leading and trailing side of the TrueDepth camera.
 
 ## Definitions
+- The [Golden State Warriors](https://www.nba.com/warriors) is the home team
+- The [Chicago Bulls](https://www.nba.com/bulls) is the guest team.
 
 ## Tech Stack
 - Xcode 14.2
@@ -63,6 +70,7 @@ A little game simulator to show how to display some up-to-date (live) data with 
 - ActivityKit
 
 ## Device and OS Compatibility
+Live activities are iPhone only.
 - For Live Activities: iPhone with iOS 16.1+
 - For Dynamic Island: iPhone 14 Pro/Pro Max with iOS 16.1+
 
@@ -71,14 +79,41 @@ A little game simulator to show how to display some up-to-date (live) data with 
 ## Design Patterns
 In this project the following [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) are used:
 ### [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
-We know the [Delegate Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. But of course it can also be used in combination with SwiftUI.
+We know the [Delegate Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it so that the GameModel class (as the delegate) can communicate with the GameSimulator class.
 
 ## Architecture
-This project is build upon the following architecture:
+This project is build upon the [Model-View architecture](https://quickbirdstudios.com/blog/swiftui-architecture-redux-mvvm/) and uses the following [architectural pattern](https://en.wikipedia.org/wiki/Architectural_pattern):
+- Model View State architectural pattern ([MV State](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)): the GameView is observing state changes in the GameModel and rerenders its UI accordingly.
+(Reservation: we don't inject the aggregated root model as global object using `@EnvironmentObject` because we only have one View here)
+
+## How does it work?
+- By pressing the _Start Game Sim_, the GameSimulator factory spits out a new GameState every 2 seconds
+- The GameView and the Live Activity updates with every new GameState
+- The GameModel is (the glue) between the GameView and the GameSimulator
+- The GameSimulator stops automatically after 120 ball possessions in total
 
 ## Learnings
 ### Live Activities
 - [Apple doc: Displaying live data](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)
+- Live activities can live for up to 8 hours at max.
+- Completed (final state) Live Activity will stay on the Lock Screen for 4 hours.
+- Live Activity has to be launched while the App is in the foreground.
+- Live Activity can be updated while the App is running in the background.
+### Any, AnyObject, any
+- AnyObject and Any are used for type erasure
+- [AnyObject, Any, and any: When to use which?](https://www.avanderlee.com/swift/anyobject-any/)
+#### AnyObject
+- All classes, class types, or class-only protocols can use `AnyObject` as their concrete type.
+- If possible try to use concrete types as it is more readable to your friends.
+- By using it as our destination, we always need to cast and consider casting failures using the default implementation.
+- Try to use concrete protocol instead, see [here](https://www.avanderlee.com/swift/anyobject-any/#when-to-use-anyobject)
+#### Any 
+- An instance of any type including function types can use `Any`.
+- `Any` is even more flexible than `AnyObject` by allowing you to cast instances of any type, but it makes code harder to predict compared to using concrete types.
+#### any
+- [When to use any?](https://www.avanderlee.com/swift/anyobject-any/#when-to-use-any)
+### Type Erasure
+- [Type Erasure in Swift](https://www.donnywals.com/understanding-type-erasure-in-swift/)
 
 ## Testing
 I use the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
