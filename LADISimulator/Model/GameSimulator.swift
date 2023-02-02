@@ -102,7 +102,7 @@ final class GameSimulator {
 
         // Capture scoring team before toggling possession
         let scoringTeamName = scoringTeam.name
-        // Change from homePossession to guestPossession
+        // Change (ball) possession form homePossession to guestPossession
         homePossession.toggle()
 
         return GameState(homeTeamScore: homeScore, guestTeamScore: guestScore, scoringTeamName: scoringTeamName, lastAction: lastAction)

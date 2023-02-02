@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The GameModel is the delegate by conforming to the delegate protocol. The GameModel can be observed.
+/// The GameModel is the delegate by conforming to the delegate protocol. The GameModel is the glue between the view and the simulator.
 final class GameModel: ObservableObject, GameSimulatorDelegate {
     @Published var gameState = GameState(homeTeamScore: 0, guestTeamScore: 0, scoringTeamName: "", lastAction: "")
 

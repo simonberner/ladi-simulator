@@ -13,8 +13,8 @@ struct GameState {
     let scoringTeamName: String
     let lastAction: String
 
-    // computed property (does not store a value!)
-    // HomeTeam: Golden State Warriors / GuestTeam: Chicago Bulls
+    // computed property (does not store a value, its value is computed!)
+    // who is the winning team?
     var winnerTeamName: String {
         homeTeamScore > guestTeamScore ? "warriors" : "bulls"
     }
