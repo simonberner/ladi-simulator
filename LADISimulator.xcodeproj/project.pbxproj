@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		1511CE3A2985249A001B836C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE392985249A001B836C /* GameState.swift */; };
 		1511CE3C29852852001B836C /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE3B29852852001B836C /* GameModel.swift */; };
+		1520E2FC298C564C00BD8594 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520E2FB298C564B00BD8594 /* WidgetKit.framework */; };
+		1520E2FE298C564C00BD8594 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1520E2FD298C564C00BD8594 /* SwiftUI.framework */; };
+		1520E301298C564C00BD8594 /* GameWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520E300298C564C00BD8594 /* GameWidgetBundle.swift */; };
+		1520E303298C564C00BD8594 /* GameLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520E302298C564C00BD8594 /* GameLiveActivity.swift */; };
+		1520E305298C564C00BD8594 /* GameWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520E304298C564C00BD8594 /* GameWidget.swift */; };
+		1520E307298C564E00BD8594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1520E306298C564E00BD8594 /* Assets.xcassets */; };
+		1520E30B298C564E00BD8594 /* GameWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1520E2F9298C564B00BD8594 /* GameWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		152F67CF2987F4F9003F673B /* GameSimulatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67CE2987F4F9003F673B /* GameSimulatorDelegate.swift */; };
 		152F67D129882C31003F673B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67D029882C31003F673B /* Image+Ext.swift */; };
 		152F67D3298862AA003F673B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67D2298862AA003F673B /* ButtonStyles.swift */; };
 		15376313298530DC00B5CF93 /* GameSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15376312298530DC00B5CF93 /* GameSimulator.swift */; };
+		156E3149298D2B930052262F /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE392985249A001B836C /* GameState.swift */; };
 		1597564029842DC90098A417 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597563F29842DC90098A417 /* Team.swift */; };
 		15B167B82982D6D8001655B2 /* LADISimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167B72982D6D8001655B2 /* LADISimulatorApp.swift */; };
 		15B167BA2982D6D8001655B2 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167B92982D6D8001655B2 /* GameView.swift */; };
@@ -24,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1520E309298C564E00BD8594 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B167AC2982D6D8001655B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1520E2F8298C564B00BD8594;
+			remoteInfo = GameWidgetExtension;
+		};
 		15B167C52982D6DB001655B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15B167AC2982D6D8001655B2 /* Project object */;
@@ -40,9 +55,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1520E30C298C564E00BD8594 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1520E30B298C564E00BD8594 /* GameWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1511CE392985249A001B836C /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		1511CE3B29852852001B836C /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		1520E2F9298C564B00BD8594 /* GameWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GameWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1520E2FB298C564B00BD8594 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1520E2FD298C564C00BD8594 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1520E300298C564C00BD8594 /* GameWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWidgetBundle.swift; sourceTree = "<group>"; };
+		1520E302298C564C00BD8594 /* GameLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLiveActivity.swift; sourceTree = "<group>"; };
+		1520E304298C564C00BD8594 /* GameWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWidget.swift; sourceTree = "<group>"; };
+		1520E306298C564E00BD8594 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1520E308298C564E00BD8594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152F67CE2987F4F9003F673B /* GameSimulatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSimulatorDelegate.swift; sourceTree = "<group>"; };
 		152F67D029882C31003F673B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		152F67D2298862AA003F673B /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
@@ -62,6 +99,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1520E2F6298C564B00BD8594 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1520E2FE298C564C00BD8594 /* SwiftUI.framework in Frameworks */,
+				1520E2FC298C564C00BD8594 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15B167B12982D6D8001655B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,6 +132,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1520E2FA298C564B00BD8594 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1520E2FB298C564B00BD8594 /* WidgetKit.framework */,
+				1520E2FD298C564C00BD8594 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1520E2FF298C564C00BD8594 /* GameWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1520E300298C564C00BD8594 /* GameWidgetBundle.swift */,
+				1520E302298C564C00BD8594 /* GameLiveActivity.swift */,
+				1520E304298C564C00BD8594 /* GameWidget.swift */,
+				1520E306298C564E00BD8594 /* Assets.xcassets */,
+				1520E308298C564E00BD8594 /* Info.plist */,
+			);
+			path = GameWidget;
+			sourceTree = "<group>";
+		};
 		152F67CD2987F481003F673B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +188,8 @@
 				15B167B62982D6D8001655B2 /* LADISimulator */,
 				15B167C72982D6DB001655B2 /* LADISimulatorTests */,
 				15B167D12982D6DB001655B2 /* LADISimulatorUITests */,
+				1520E2FF298C564C00BD8594 /* GameWidget */,
+				1520E2FA298C564B00BD8594 /* Frameworks */,
 				15B167B52982D6D8001655B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +200,7 @@
 				15B167B42982D6D8001655B2 /* LADISimulator.app */,
 				15B167C42982D6DB001655B2 /* LADISimulatorTests.xctest */,
 				15B167CE2982D6DB001655B2 /* LADISimulatorUITests.xctest */,
+				1520E2F9298C564B00BD8594 /* GameWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +247,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1520E2F8298C564B00BD8594 /* GameWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1520E30F298C564E00BD8594 /* Build configuration list for PBXNativeTarget "GameWidgetExtension" */;
+			buildPhases = (
+				1520E2F5298C564B00BD8594 /* Sources */,
+				1520E2F6298C564B00BD8594 /* Frameworks */,
+				1520E2F7298C564B00BD8594 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameWidgetExtension;
+			productName = GameWidgetExtension;
+			productReference = 1520E2F9298C564B00BD8594 /* GameWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		15B167B32982D6D8001655B2 /* LADISimulator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B167D82982D6DB001655B2 /* Build configuration list for PBXNativeTarget "LADISimulator" */;
@@ -184,10 +271,12 @@
 				15B167B02982D6D8001655B2 /* Sources */,
 				15B167B12982D6D8001655B2 /* Frameworks */,
 				15B167B22982D6D8001655B2 /* Resources */,
+				1520E30C298C564E00BD8594 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1520E30A298C564E00BD8594 /* PBXTargetDependency */,
 			);
 			name = LADISimulator;
 			productName = LADISimulator;
@@ -240,6 +329,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					1520E2F8298C564B00BD8594 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					15B167B32982D6D8001655B2 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -269,11 +361,20 @@
 				15B167B32982D6D8001655B2 /* LADISimulator */,
 				15B167C32982D6DB001655B2 /* LADISimulatorTests */,
 				15B167CD2982D6DB001655B2 /* LADISimulatorUITests */,
+				1520E2F8298C564B00BD8594 /* GameWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1520E2F7298C564B00BD8594 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1520E307298C564E00BD8594 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15B167B22982D6D8001655B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,6 +401,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1520E2F5298C564B00BD8594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1520E305298C564C00BD8594 /* GameWidget.swift in Sources */,
+				156E3149298D2B930052262F /* GameState.swift in Sources */,
+				1520E303298C564C00BD8594 /* GameLiveActivity.swift in Sources */,
+				1520E301298C564C00BD8594 /* GameWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15B167B02982D6D8001655B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +448,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1520E30A298C564E00BD8594 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1520E2F8298C564B00BD8594 /* GameWidgetExtension */;
+			targetProxy = 1520E309298C564E00BD8594 /* PBXContainerItemProxy */;
+		};
 		15B167C62982D6DB001655B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 15B167B32982D6D8001655B2 /* LADISimulator */;
@@ -349,6 +466,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1520E30D298C564E00BD8594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XLY4UW5GHZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonberner.LADISimulator.GameWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1520E30E298C564E00BD8594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XLY4UW5GHZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonberner.LADISimulator.GameWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		15B167D62982D6DB001655B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -466,6 +637,7 @@
 		15B167D92982D6DB001655B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +669,7 @@
 		15B167DA2982D6DB001655B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -616,6 +789,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1520E30F298C564E00BD8594 /* Build configuration list for PBXNativeTarget "GameWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1520E30D298C564E00BD8594 /* Debug */,
+				1520E30E298C564E00BD8594 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15B167AF2982D6D8001655B2 /* Build configuration list for PBXProject "LADISimulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

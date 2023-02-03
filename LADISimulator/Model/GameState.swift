@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameState {
+struct GameState: Codable, Hashable {
     let homeTeamScore: Int
     let guestTeamScore: Int
     let scoringTeamName: String
