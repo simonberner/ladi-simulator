@@ -25,11 +25,7 @@ struct GameLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: GameAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello")
-            }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
+            LiveActivityView()
 
         } dynamicIsland: { context in // context: is the GameAttributes which for us is the GameState
             DynamicIsland {

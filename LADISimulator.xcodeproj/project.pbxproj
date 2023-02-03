@@ -21,6 +21,9 @@
 		152F67D3298862AA003F673B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67D2298862AA003F673B /* ButtonStyles.swift */; };
 		15376313298530DC00B5CF93 /* GameSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15376312298530DC00B5CF93 /* GameSimulator.swift */; };
 		156E3149298D2B930052262F /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511CE392985249A001B836C /* GameState.swift */; };
+		156E314B298D30F70052262F /* LiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156E314A298D30F70052262F /* LiveActivityView.swift */; };
+		156E314C298D34470052262F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B167BB2982D6DA001655B2 /* Assets.xcassets */; };
+		156E314D298D35260052262F /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F67D029882C31003F673B /* Image+Ext.swift */; };
 		1597564029842DC90098A417 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597563F29842DC90098A417 /* Team.swift */; };
 		15B167B82982D6D8001655B2 /* LADISimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167B72982D6D8001655B2 /* LADISimulatorApp.swift */; };
 		15B167BA2982D6D8001655B2 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167B92982D6D8001655B2 /* GameView.swift */; };
@@ -84,6 +87,7 @@
 		152F67D029882C31003F673B /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		152F67D2298862AA003F673B /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		15376312298530DC00B5CF93 /* GameSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSimulator.swift; sourceTree = "<group>"; };
+		156E314A298D30F70052262F /* LiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityView.swift; sourceTree = "<group>"; };
 		1597563F29842DC90098A417 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		15B167B42982D6D8001655B2 /* LADISimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADISimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B167B72982D6D8001655B2 /* LADISimulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LADISimulatorApp.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				1520E304298C564C00BD8594 /* GameWidget.swift */,
 				1520E306298C564E00BD8594 /* Assets.xcassets */,
 				1520E308298C564E00BD8594 /* Info.plist */,
+				156E314A298D30F70052262F /* LiveActivityView.swift */,
 			);
 			path = GameWidget;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156E314C298D34470052262F /* Assets.xcassets in Resources */,
 				1520E307298C564E00BD8594 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,8 +413,10 @@
 			files = (
 				1520E305298C564C00BD8594 /* GameWidget.swift in Sources */,
 				156E3149298D2B930052262F /* GameState.swift in Sources */,
+				156E314B298D30F70052262F /* LiveActivityView.swift in Sources */,
 				1520E303298C564C00BD8594 /* GameLiveActivity.swift in Sources */,
 				1520E301298C564C00BD8594 /* GameWidgetBundle.swift in Sources */,
+				156E314D298D35260052262F /* Image+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
