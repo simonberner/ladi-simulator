@@ -29,27 +29,61 @@ struct GameLiveActivity: Widget {
 
         } dynamicIsland: { context in // context: is the GameAttributes which for us is the GameState
             DynamicIsland {
-                // Expanded UI goes here.  Compose the expanded UI through
-                // various regions, like leading/trailing/center/bottom
+                // Expanded UI of DI goes here.
+                // Compose the expanded UI through various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    HStack {
+                        Image("warriors")
+                            .teamLogoModifier(frame: 40)
+
+                        Text("100")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    HStack {
+                        Text("99")
+                            .font(.title)
+                            .fontWeight(.semibold)
+
+                        Image("bulls")
+                            .teamLogoModifier(frame: 40)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom")
-                    // more content
+                    HStack {
+                        Image("warriors")
+                            .teamLogoModifier(frame: 20)
+
+                        Text("Mahalia Jackson smashes a 9!")
+                    }
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    Text("Center")
+                    Text("5:24 3Q")
                 }
+                // Compact UI of DI goes here
             } compactLeading: {
-                Text("L")
+                HStack {
+                    Image("warriors")
+                        .teamLogoModifier() // we don't give it a frame as we let the DA resize it to fit
+
+                    Text("100")
+                        .fontWeight(.semibold)
+                }
             } compactTrailing: {
-                Text("T")
+                HStack {
+                    Image("bulls")
+                        .teamLogoModifier() // we don't give it a frame as we let the DA resize it to fit
+
+                    Text("77")
+                        .fontWeight(.semibold)
+                }
+                // Minimal UI of DI goes here
             } minimal: {
-                Text("Min")
+                // TODO: Show the image of the winner team
+                Image("warriors")
+                    .teamLogoModifier()
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
