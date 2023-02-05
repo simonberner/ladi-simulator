@@ -59,6 +59,7 @@ Dynamic Island: On devices that support the Dynamic Island (see list below), the
 
 ## Definitions
 - LA: Live Activity
+- LAs: Live Activities
 - DI: Dynamic Island
 - [Golden State Warriors](https://www.nba.com/warriors): is the home team
 - [Chicago Bulls](https://www.nba.com/bulls): is the guest team.
@@ -73,9 +74,9 @@ Dynamic Island: On devices that support the Dynamic Island (see list below), the
 - [ActivityKit](https://developer.apple.com/documentation/activitykit)
 
 ## Device and OS Compatibility
-Live activities are iPhone only.
-- For Live Activities: iPhone with iOS 16.1+
-- For Dynamic Island: iPhone 14 Pro/Pro Max with iOS 16.1+
+LAs are iPhone only.
+- For LA: iPhone with iOS 16.1+
+- For DI: iPhone 14 Pro/Pro Max with iOS 16.1+
 
 ## Screenshots
 tbd
@@ -91,8 +92,8 @@ In this project the following [design patterns](https://en.wikipedia.org/wiki/So
 We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it as 1to1 communication pattern in order that the GameModel class (as the delegate) can communicate with the GameSimulator class.
 
 ## How does it work?
-- By pressing the _Start Game Sim_, the GameSimulator factory spits out a new GameState every 2 seconds
-- The GameView and the Live Activity updates with every new GameState
+- By pressing the _Start Game Sim_, the GameSimulator "factory" spits out a new GameState every 2 seconds
+- The GameView and the Live Activity updates with every (new) GameState change
 - The GameModel is (the glue) between the GameView and the GameSimulator
 - The GameSimulator stops automatically after 120 ball possessions in total
 
@@ -106,7 +107,9 @@ We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOK
 - Live Activities are not Widgets but we need WidgetKit to build them with Widget Extension.
 - It is highly likely that one is going to have also a Widget in combination with Live Activities.
 - Live Activity vs Widget: a Widget can update itself, as a LA have to be updated from within the App.
-- As soon you create a Widget Extension including Live Activity, Xcode will generate some [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code) for you.
+- As soon you create a Widget Extension including LA, Xcode will generate some [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code) for you.
+- When more than one LA is active the system chooses which LAs are visible and displays two using the minimal presentation
+- IMPORTANT: In the App Target in the Info.plist we have to add the Key: `Supports Live Activities` and set its value to `True`
 ### Any, AnyObject, any
 - AnyObject and Any are used for type erasure
 - [AnyObject, Any, and any: When to use which?](https://www.avanderlee.com/swift/anyobject-any/)
