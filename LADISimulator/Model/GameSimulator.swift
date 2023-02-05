@@ -55,10 +55,11 @@ final class GameSimulator {
     // Reports to the delegate (GameModel in our case)
     func end() {
         delegate?.didUpdate(gameState: endGame())
+        delegate?.didCompleteGame()
     }
 
     // End the game by setting the winning team and resetting the vars
-    private func endGame() -> GameState {
+    func endGame() -> GameState {
         let finalHomeScore = homeScore
         let finalGuestScore = guestScore
         let winningTeam = finalHomeScore > finalGuestScore ? homeTeam : guestTeam

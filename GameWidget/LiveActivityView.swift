@@ -9,6 +9,9 @@ import SwiftUI
 import WidgetKit
 
 struct LiveActivityView: View {
+
+    let context: ActivityViewContext<GameAttributes>
+
     var body: some View {
         ZStack {
             Image("activity-background")
@@ -21,28 +24,28 @@ struct LiveActivityView: View {
 
             VStack(spacing: 16) {
                 HStack {
-                    Image("warriors")
+                    Image(context.attributes.homeTeam)
                         .teamLogoModifier(frame: 60)
-                    Text("90")
+                    Text(context.state.gameState.homeTeamScore.description)
                         .font(.system(size: 40, weight: .bold))
                         .foregroundColor(.white.opacity(0.8))
 //                        .frame(width: 80, height: 80, alignment: .leading)
 
                     Spacer()
 
-                    Text("123")
+                    Text(context.state.gameState.guestTeamScore.description)
                         .font(.system(size: 40, weight: .bold))
                         .foregroundColor(.black.opacity(0.8))
 //                        .frame(width: 80, height: 80, alignment: .trailing)
-                    Image("bulls")
+                    Image(context.attributes.guestTeam)
                         .teamLogoModifier(frame: 60)
 
                 }
 
                 HStack {
-                    Image("warriors")
+                    Image(context.state.gameState.scoringTeamName)
                         .teamLogoModifier(frame: 20)
-                    Text("S. did it! bla bla")
+                    Text(context.state.gameState.lastAction)
                         .font(.callout)
                         .fontWeight(.semibold)
                         .foregroundColor(.white.opacity(0.9))
@@ -53,9 +56,9 @@ struct LiveActivityView: View {
     }
 }
 
-struct LiveActivityview_Previews: PreviewProvider {
-    static var previews: some View {
-        LiveActivityView()
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}
+//struct LiveActivityview_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LiveActivityView()
+//            .previewContext(WidgetPreviewContext(family: .systemMedium))
+//    }
+//}

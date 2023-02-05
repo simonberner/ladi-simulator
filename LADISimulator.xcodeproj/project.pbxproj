@@ -32,6 +32,8 @@
 		15B167C92982D6DB001655B2 /* LADISimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167C82982D6DB001655B2 /* LADISimulatorTests.swift */; };
 		15B167D32982D6DB001655B2 /* LADISimulatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167D22982D6DB001655B2 /* LADISimulatorUITests.swift */; };
 		15B167D52982D6DB001655B2 /* LADISimulatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B167D42982D6DB001655B2 /* LADISimulatorUITestsLaunchTests.swift */; };
+		15D95C49298EE19F005BCFA2 /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D95C48298EE19F005BCFA2 /* GameAttributes.swift */; };
+		15D95C4A298EE19F005BCFA2 /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D95C48298EE19F005BCFA2 /* GameAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		15B167D22982D6DB001655B2 /* LADISimulatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LADISimulatorUITests.swift; sourceTree = "<group>"; };
 		15B167D42982D6DB001655B2 /* LADISimulatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LADISimulatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		15B167E12982D701001655B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		15D7051D298FFF7500003963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15D95C48298EE19F005BCFA2 /* GameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,10 +154,10 @@
 			children = (
 				1520E300298C564C00BD8594 /* GameWidgetBundle.swift */,
 				1520E302298C564C00BD8594 /* GameLiveActivity.swift */,
+				156E314A298D30F70052262F /* LiveActivityView.swift */,
 				1520E304298C564C00BD8594 /* GameWidget.swift */,
 				1520E306298C564E00BD8594 /* Assets.xcassets */,
 				1520E308298C564E00BD8594 /* Info.plist */,
-				156E314A298D30F70052262F /* LiveActivityView.swift */,
 			);
 			path = GameWidget;
 			sourceTree = "<group>";
@@ -173,6 +177,7 @@
 				15376312298530DC00B5CF93 /* GameSimulator.swift */,
 				1511CE392985249A001B836C /* GameState.swift */,
 				1597563F29842DC90098A417 /* Team.swift */,
+				15D95C48298EE19F005BCFA2 /* GameAttributes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 		15B167B62982D6D8001655B2 /* LADISimulator */ = {
 			isa = PBXGroup;
 			children = (
+				15D7051D298FFF7500003963 /* Info.plist */,
 				15B167B72982D6D8001655B2 /* LADISimulatorApp.swift */,
 				15B167B92982D6D8001655B2 /* GameView.swift */,
 				1597563D29842A780098A417 /* Model */,
@@ -413,6 +419,7 @@
 			files = (
 				1520E305298C564C00BD8594 /* GameWidget.swift in Sources */,
 				156E3149298D2B930052262F /* GameState.swift in Sources */,
+				15D95C4A298EE19F005BCFA2 /* GameAttributes.swift in Sources */,
 				156E314B298D30F70052262F /* LiveActivityView.swift in Sources */,
 				1520E303298C564C00BD8594 /* GameLiveActivity.swift in Sources */,
 				1520E301298C564C00BD8594 /* GameWidgetBundle.swift in Sources */,
@@ -430,6 +437,7 @@
 				1511CE3A2985249A001B836C /* GameState.swift in Sources */,
 				152F67D3298862AA003F673B /* ButtonStyles.swift in Sources */,
 				15B167BA2982D6D8001655B2 /* GameView.swift in Sources */,
+				15D95C49298EE19F005BCFA2 /* GameAttributes.swift in Sources */,
 				152F67CF2987F4F9003F673B /* GameSimulatorDelegate.swift in Sources */,
 				15376313298530DC00B5CF93 /* GameSimulator.swift in Sources */,
 				15B167B82982D6D8001655B2 /* LADISimulatorApp.swift in Sources */,
@@ -654,6 +662,8 @@
 				DEVELOPMENT_TEAM = XLY4UW5GHZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LADISimulator/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -686,6 +696,8 @@
 				DEVELOPMENT_TEAM = XLY4UW5GHZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LADISimulator/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
