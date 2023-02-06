@@ -24,10 +24,11 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
 
     func startLiveActivity() {
         let attributes = GameAttributes(homeTeam: "warriors", guestTeam: "bulls") // TODO: replace with non static attribute data
-        let currentGameState = GameAttributes.GameStatus(gameState: gameState)
+        let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
 
+        // Start the LA
         do {
-            liveActivity = try Activity.request(attributes: attributes, contentState: currentGameState)
+            liveActivity = try Activity.request(attributes: attributes, content: currentGameState)
         } catch {
             print(error.localizedDescription)
         }
@@ -36,17 +37,20 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
     // Gets called every 2 seconds based on the GameSimulator with a new gameState
     func didUpdate(gameState: GameState) {
         self.gameState = gameState
+        let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
 
-        // async/await: update the LA
+        // async/await: Update the LA
         Task {
-            await liveActivity?.update(using: .init(gameState: gameState))
+            await liveActivity?.update(currentGameState)
         }
     }
 
     func didCompleteGame() {
+        let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
 
+        // async/await: End the LA
         Task {
-            await liveActivity?.end(using: .init(gameState: simulator.endGame()), dismissalPolicy: .default) // default: stays on the lock screen for 4h or until the user dismisses it
+            await liveActivity?.end(currentGameState, dismissalPolicy: .default) // default: stays on the lock screen for 4h or until the user dismisses it
         }
     }
 
