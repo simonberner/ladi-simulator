@@ -21,11 +21,13 @@ struct LiveActivityView: View {
                     ContainerRelativeShape()
                         .fill(.black.opacity(0.4).gradient)
                 }
+                .contentTransition(.identity)
 
             VStack(spacing: 16) {
                 HStack {
                     Image(context.attributes.homeTeam)
                         .teamLogoModifier(frame: 60)
+                        .contentTransition(.identity)
                     Text(context.state.gameState.homeTeamScore.description)
                         .font(.system(size: 40, weight: .bold))
                         .foregroundColor(.white.opacity(0.8))
@@ -39,7 +41,7 @@ struct LiveActivityView: View {
 //                        .frame(width: 80, height: 80, alignment: .trailing)
                     Image(context.attributes.guestTeam)
                         .teamLogoModifier(frame: 60)
-
+                        .contentTransition(.identity)
                 }
 
                 HStack {

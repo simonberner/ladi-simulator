@@ -23,6 +23,7 @@ struct GameLiveActivity: Widget {
                     HStack {
                         Image(context.attributes.homeTeam)
                             .teamLogoModifier(frame: 40)
+                            .contentTransition(.identity)
 
                         Text(context.state.gameState.homeTeamScore.description)
                             .font(.title)
@@ -37,6 +38,7 @@ struct GameLiveActivity: Widget {
 
                         Image(context.attributes.guestTeam)
                             .teamLogoModifier(frame: 40)
+                            .contentTransition(.identity)
                     }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
@@ -56,6 +58,7 @@ struct GameLiveActivity: Widget {
                 HStack {
                     Image(context.attributes.homeTeam)
                         .teamLogoModifier() // we don't give it a frame as we let the DA resize it to fit
+                        .contentTransition(.identity)
 
                     Text(context.state.gameState.homeTeamScore.description)
                         .fontWeight(.semibold)
@@ -64,6 +67,7 @@ struct GameLiveActivity: Widget {
                 HStack {
                     Image(context.attributes.guestTeam)
                         .teamLogoModifier() // we don't give it a frame as we let the DA resize it to fit
+                        .contentTransition(.identity)
 
                     Text(context.state.gameState.guestTeamScore.description)
                         .fontWeight(.semibold)
@@ -72,6 +76,7 @@ struct GameLiveActivity: Widget {
             } minimal: {
                 Image(context.state.gameState.scoringTeamName)
                     .teamLogoModifier()
+                    .contentTransition(.identity)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
