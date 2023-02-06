@@ -87,7 +87,7 @@ final class GameSimulator {
 
         // every team gets 60 (120/2) ball possessions at max, after that the game is over
         guard possessionCount <= 120 else {
-            delegate?.didCompleteGame()
+            end()
             return
         }
 
