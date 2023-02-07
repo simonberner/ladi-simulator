@@ -13,6 +13,9 @@
     <a href="https://developer.apple.com/xcode">
         <img src="https://img.shields.io/badge/Xcode-14.2-blue.svg?style=for-the-badge" />
     </a>
+    <a href="https://developer.apple.com/discover/">
+        <img src="https://img.shields.io/badge/platform-iOS-lightgrey?style=for-the-badge" />
+    </a>
     <a href="https://mastodon.green/@simonberner">
         <img src="https://img.shields.io/badge/Contact-@simonberner-orange?style=for-the-badge" alt="mastodon.green/@simonberner" />
     </a>
@@ -39,7 +42,6 @@ A little [basketball](https://en.wikipedia.org/wiki/Basketball) game simulator w
 * [Device and OS Compatibility](#device-and-os-compatibility)
 * [Screenshots](#screenshots)
 * [Architecture](#architecture)
-* [Design Patterns](#design-patterns)
 * [How does it work?](#how-does-it-work)
 * [Learnings](#learnings)
 * [Testing](#testing)
@@ -82,12 +84,13 @@ LAs are iPhone only.
 tbd
 
 ## Architecture
-This project is build upon the [Model-View architecture](https://quickbirdstudios.com/blog/swiftui-architecture-redux-mvvm/) and uses the following [architectural pattern](https://en.wikipedia.org/wiki/Architectural_pattern):
+This project is build upon the [Model-View architecture](https://quickbirdstudios.com/blog/swiftui-architecture-redux-mvvm/).
+### Architectural Patterns
+I am using the following [architectural pattern](https://en.wikipedia.org/wiki/Architectural_pattern) to implement the above architecture in detail:
 - Model View State architectural pattern ([MV State](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)): the GameView is observing state changes in the GameModel and rerenders its UI accordingly.
 (Reservation: we don't inject the aggregated root model as global object using `@EnvironmentObject` because we only have one View here)
-
-## Design Patterns
-In this project the following [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) are used:
+### Design Patterns
+I am using the following [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) to solve common challenges in detail:
 - [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
 We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it as 1to1 communication pattern in order that the GameModel class (as the delegate) can communicate with the GameSimulator class.
 
@@ -109,7 +112,8 @@ We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOK
 - Live Activity vs Widget: a Widget can update itself, as a LA have to be updated from within the App.
 - As soon you create a Widget Extension including LA, Xcode will generate some [boilerplate code](https://en.wikipedia.org/wiki/Boilerplate_code) for you.
 - When more than one LA is active the system chooses which LAs are visible and displays two using the minimal presentation
-- IMPORTANT: In the App Target in the Info.plist we have to add the Key: `Supports Live Activities` and set its value to `True`
+- IMPORTANT: In the App Target in the Info.plist we have to add the Key: `Supports Live Activities` and set its value to `True`.
+- Use the new (iOS 16.2+) struct `ActivityContent<State>` to describe the current state and config of a LA.
 ### Any, AnyObject, any
 - AnyObject and Any are used for type erasure
 - [AnyObject, Any, and any: When to use which?](https://www.avanderlee.com/swift/anyobject-any/)
@@ -129,8 +133,11 @@ We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOK
 ### Nice to know
 - [Architecture vs Architectural Patterns vs Design Patterns](https://www.geeksforgeeks.org/difference-between-architectural-style-architectural-patterns-and-design-patterns/)
 - Architecture: An architecture shows how we organize our code, or how the system will look like from 10000 meters above from the highest level of abstraction of our system design.
+- Architecture: Software architecture refers to the fundamental structure underlying a system. It is the general conceptual design that informs the development and maintenance of software and defines what it can — and cannot — do.
+- Architecture: A poor architecture can make changes to the software much harder than they need to be.
 - Architectural Patterns: Are broad solutions how we can implement the chosen architecture.
 - Design Patterns: Are accumulative best practices and experiences that developers used over the years to solve general problems.
+- GitHub: We can use one of the following keywords to close an issue via a commit message: `close, closes, closed, fix, fixes, fixed, resolve, resolves, resolved`. The message MUST contain a string matching the following pattern: `KEYWORD #ISSUENO`. For example: `Closes/closes #1` or multiple issues `Closes #1, Resolves #2, Fixes #3`. [credits](https://stackoverflow.com/questions/60027222/github-how-can-i-close-the-two-issues-with-commit-message)
 
 ## Testing
 I use the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
