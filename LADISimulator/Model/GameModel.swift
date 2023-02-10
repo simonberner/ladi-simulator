@@ -23,12 +23,16 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
     }
 
     func startLiveActivity() {
-        let attributes = GameAttributes(homeTeam: "warriors", guestTeam: "bulls") // TODO: replace with non static attribute data
+        let attributes = GameAttributes(homeTeam: "warriors", guestTeam: "bulls")
         let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
 
         // Start the LA
         do {
             liveActivity = try Activity.request(attributes: attributes, content: currentGameState)
+            // with pushToken setup
+//            liveActivity = try Activity.request(attributes: attributes, content: currentGameState, pushType: .token)
+//            liveActivity?.pushToken
+
         } catch {
             print(error.localizedDescription)
         }
