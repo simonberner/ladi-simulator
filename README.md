@@ -84,15 +84,12 @@ LAs are iPhone only.
 tbd
 
 ## Architecture
-This project is build upon the [Model-View architecture](https://quickbirdstudios.com/blog/swiftui-architecture-redux-mvvm/).
-### Architectural Patterns
-I am using the following [architectural pattern](https://en.wikipedia.org/wiki/Architectural_pattern) to implement the above architecture in detail:
-- Model View State architectural pattern ([MV State](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)): the GameView is observing state changes in the GameModel and rerenders its UI accordingly.
-(Reservation: we don't inject the aggregated root model as global object using `@EnvironmentObject` because we only have one View here)
-### Design Patterns
-I am using the following [design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) to solve common challenges in detail:
-- [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
-We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it as 1to1 communication pattern in order that the GameModel class (as the delegate) can communicate with the GameSimulator class.
+The App Architecture is built using the following patterns:
+### [Architectural Pattern](https://en.wikipedia.org/wiki/Architectural_pattern)
+I am using the [Model-View architectural pattern](https://quickbirdstudios.com/blog/swiftui-architecture-redux-mvvm/) in order that the GameView can observe/listen to state changes in the GameModel and rerender its UI accordingly.
+### [Design Patterns](https://en.wikipedia.org/wiki/Software_design_pattern)
+I am using the following design patterns to solve common challenges:
+- [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern): We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it as 1to1 communication pattern in order that the GameModel class (as the delegate) can communicate with the GameSimulator class.
 
 ## How does it work?
 - By pressing the _Start Game Sim_, the GameSimulator "factory" spits out a new GameState every 2 seconds
@@ -114,6 +111,15 @@ We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOK
 - When more than one LA is active the system chooses which LAs are visible and displays two using the minimal presentation
 - IMPORTANT: In the App Target in the Info.plist we have to add the Key: `Supports Live Activities` and set its value to `True`.
 - Use the new (iOS 16.2+) struct `ActivityContent<State>` to describe the current state and config of a LA.
+- UI Banner on the [Always-On display](https://support.apple.com/en-us/HT213435) (iPhone 14 only) doesn't show any animations
+- UI Banner on the regular lock screen shows animations
+### Live Activities - Background Updates
+- [Configuring background execution modes](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+- [Remote Push Notifications](https://developer.apple.com/documentation/activitykit/updating-and-ending-your-live-activity-with-activitykit-push-notifications)
+- [Background Strategies](https://developer.apple.com/documentation/backgroundtasks/choosing_background_strategies_for_your_app)
+- [Background processing](https://uynguyen.github.io/2020/09/26/Best-practice-iOS-background-processing-Background-App-Refresh-Task/)
+There are different ways of how one can update a Live Activity while the App is running in the background.
+But be aware of that you have to have good reasons to BE ALLOWED of running your App in the background and doing updates, otherwise the AppStore reviewers will reject the App! Apple does not want that every App can just do stuff in the background and drain battery and impact device performance.
 ### Any, AnyObject, any
 - AnyObject and Any are used for type erasure
 - [AnyObject, Any, and any: When to use which?](https://www.avanderlee.com/swift/anyobject-any/)
