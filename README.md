@@ -145,14 +145,36 @@ But be aware of that you have to have good reasons to BE ALLOWED of running your
 - Design Patterns: Are accumulative best practices and experiences that developers used over the years to solve general problems.
 - GitHub: We can use one of the following keywords to close an issue via a commit message: `close, closes, closed, fix, fixes, fixed, resolve, resolves, resolved`. The message MUST contain a string matching the following pattern: `KEYWORD #ISSUENO`. For example: `Closes/closes #1` or multiple issues `Closes #1, Resolves #2, Fixes #3`. [credits](https://stackoverflow.com/questions/60027222/github-how-can-i-close-the-two-issues-with-commit-message)
 
-## Testing
-I use the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
+## Contribution Guidelines
 
-## Code Comments
-I like putting in the effort of adding comments to my code, [here is why](https://www.youtube.com/watch?v=1NEa-OcsTow).
+### Testing
+Follow the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
+- Arrange inputs and targets:
+    - Does the test require any objects or special settings?
+    - Does it need to prep a database?
+    - Does it need to log into a web app?
+- Act on target behavior:
+    - This step should call the function/method/API, or whatever needs to be tested.
+    - It should focus on the target behavior.
+- Assert expected outcomes:
+    - This step should elicit some sort of response.
+    - Then the response should be judged for correctness.
 
-## Pull Requests
-When I create PRs I stick to [this guideline](https://www.youtube.com/watch?v=_sfzAOfY8uc).
+### Code Comments
+- Include "[self documenting code](https://www.youtube.com/watch?v=1NEa-OcsTow)."
+- Additionally, include descriptive comments in order to improve readability.
+    -Aim for comments that allow other programmers to understand your code without having to work through your entire classes/methods.
+
+### Pull Requests
+- Pull requests should be kept to a reasonable size.
+- Pull requests should be descriptive, answer the following questions:
+    - What was the problem?
+    - What did you do to improve it?
+    - How do you know it is a working solution?/What tests did you do?
+    - Why do you believe this is the right solution?
+    - Why is this the best solution for the problem?
+- Review/proofread your pull request before submission.
+Following this [guide](https://www.youtube.com/watch?v=_sfzAOfY8uc).
 
 ## References
 - [Displaying live data with Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)
