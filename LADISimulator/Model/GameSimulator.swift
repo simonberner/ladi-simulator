@@ -18,6 +18,7 @@ final class GameSimulator {
     var homePossession = true
     var possessionCount = 0
     var timer: Timer?
+    var simStarted = false
 
     // Computed instance property (does not store any value)
     var scoringTeam: Team {
@@ -49,11 +50,15 @@ final class GameSimulator {
 
     // Start a game by setting a time interval which fires of runGameSimulator every 2sec
     func start() {
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runGameSimulator), userInfo: nil, repeats: true)
+        if !simStarted {
+            simStarted = true
+            timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runGameSimulator), userInfo: nil, repeats: true)
+        }
     }
 
     // Reports to the delegate (GameModel in our case)
     func end() {
+        simStarted = false
         delegate?.didUpdate(gameState: endGame())
         delegate?.didCompleteGame()
     }
