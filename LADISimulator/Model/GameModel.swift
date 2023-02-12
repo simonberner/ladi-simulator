@@ -14,6 +14,7 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
     @Published var gameState = GameState(homeTeamScore: 0, guestTeamScore: 0, scoringTeamName: "", lastAction: "")
 
     var liveActivity: Activity<GameAttributes>? = nil
+    var lAStarted = false
     let simulator = GameSimulator()
 
     init() {
@@ -26,16 +27,20 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
         let attributes = GameAttributes(homeTeam: "warriors", guestTeam: "bulls")
         let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
 
-        // Start the LA
-        do {
-            liveActivity = try Activity.request(attributes: attributes, content: currentGameState)
-            // with pushToken setup
-//            liveActivity = try Activity.request(attributes: attributes, content: currentGameState, pushType: .token)
-//            liveActivity?.pushToken
+        // Start the LA (if it is not already running)
+        if !lAStarted {
+            do {
+                liveActivity = try Activity.request(attributes: attributes, content: currentGameState)
+                lAStarted = true
+                // with pushToken setup
+    //            liveActivity = try Activity.request(attributes: attributes, content: currentGameState, pushType: .token)
+    //            liveActivity?.pushToken
 
-        } catch {
-            print(error.localizedDescription)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
+
     }
 
     // Gets called every 2 seconds based on the GameSimulator with a new gameState
@@ -51,6 +56,7 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
 
     func didCompleteGame() {
         let currentGameState = ActivityContent(state: GameAttributes.GameStatus(gameState: gameState), staleDate: nil)
+        lAStarted = false
 
         // async/await: End the LA
         Task {
