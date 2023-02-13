@@ -81,7 +81,13 @@ LAs are iPhone only.
 - For DI: iPhone 14 Pro/Pro Max with iOS 16.1+
 
 ## Screenshots
-tbd
+| App View | Banner iPhone 14 | Banner iPhone 14 Pro |
+| :---: | :---: | :---: |
+| <img src="AppScreenshots/sim-app-ip14pro.webp" height="110%" width="110%" > | <img src="AppScreenshots/la-banner-ip14.webp" height="100%" width="100%" > | <img src="AppScreenshots/la-banner-ip14pro.webp" height="100%" width="100%" > |
+
+| LADI iPhone14Pro | LADI expanded iPhone14Pro |
+| :---: | :---: |
+| <img src="AppScreenshots/la-da-iphone14pro.webp" height="80%" width="80%" > | <img src="AppScreenshots/la-da-expanded-ip14pro.webp" height="80%" width="80%" > |
 
 ## Architecture
 The App Architecture is built using the following patterns:
@@ -92,7 +98,9 @@ I am using the following design patterns to solve common challenges:
 - [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern): We know the [Delegate and Protocol Pattern](https://www.youtube.com/watch?v=qiOKO8ta1n4) best from UIKit. Here we use it as 1to1 communication pattern in order that the GameModel class (as the delegate) can communicate with the GameSimulator class.
 
 ## How does it work?
-- By pressing the _Start Game Sim_, the GameSimulator "factory" spits out a new GameState every 2 seconds
+- By pressing the _Start Game Simulation_, the GameSimulator "factory" spits out a new GameState every 2 seconds. It is restricted to be started only once.
+- By pressing _Start Live Activity_, the Live Activity can be started. It is restricted to be started only once.
+- The Live Activity updates while the App is running in the background. This is only possible because the background mode 'Audio, AirPlay,...' is enabled.
 - The GameView and the Live Activity updates with every (new) GameState change
 - The GameModel is (the glue) between the GameView and the GameSimulator
 - The GameSimulator stops automatically after 120 ball possessions in total
@@ -180,9 +188,16 @@ Following this [guide](https://www.youtube.com/watch?v=_sfzAOfY8uc).
 - [Displaying live data with Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)
 - [Live Activities - Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/live-activities)
 
-
 ## Credits
 🙏🏽 Sean Allen
+
+## Extra: Xcode shortcuts
+- CMD + B: build the project
+- CMD + R: build and run the App in the simulator
+- CMD + SHIFT + K: clean build folder
+- CMD + SHIFT + O: open quick search
+- CMD + SHIFT + J: highlight the selected open file in the navigator
+- CMD + SHIFT + L: open up the library (Snippets, Media, Colors, SF Symbols)
 
 <hr>
 <p align="center">
