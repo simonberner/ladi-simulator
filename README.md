@@ -44,7 +44,7 @@ A little [basketball](https://en.wikipedia.org/wiki/Basketball) game simulator w
 * [Architecture](#architecture)
 * [How does it work?](#how-does-it-work)
 * [Learnings](#learnings)
-* [Testing](#testing)
+* [Contribution Guidelines](#contribution-guidelines)
 * [Code Comments](#code-comments)
 * [Pull Requests](#pull-requests)
 * [References](#references)
@@ -154,8 +154,7 @@ But be aware of that you have to have good reasons to BE ALLOWED of running your
 - GitHub: We can use one of the following keywords to close an issue via a commit message: `close, closes, closed, fix, fixes, fixed, resolve, resolves, resolved`. The message MUST contain a string matching the following pattern: `KEYWORD #ISSUENO`. For example: `Closes/closes #1` or multiple issues `Closes #1, Resolves #2, Fixes #3`. [credits](https://stackoverflow.com/questions/60027222/github-how-can-i-close-the-two-issues-with-commit-message)
 
 ## Contribution Guidelines
-
-### Testing
+### Unit-Testing
 Follow the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for Unit Testing.
 - Arrange inputs and targets:
     - Does the test require any objects or special settings?
@@ -167,12 +166,12 @@ Follow the [Arrange, Act and Assert Pattern](https://automationpanda.com/2020/07
 - Assert expected outcomes:
     - This step should elicit some sort of response.
     - Then the response should be judged for correctness.
-
+### UI-Testing
+Follow the [Given-When-Then style](https://martinfowler.com/bliki/GivenWhenThen.html) to write the UI-Tests from a user perspective.
 ### Code Comments
 - Include "[self documenting code](https://www.youtube.com/watch?v=1NEa-OcsTow)."
 - Additionally, include descriptive comments in order to improve readability.
     -Aim for comments that allow other programmers to understand your code without having to work through your entire classes/methods.
-
 ### Pull Requests
 - Pull requests should be kept to a reasonable size.
 - Pull requests should be descriptive, answer the following questions:
